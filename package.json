@@ -8,6 +8,7 @@
     "build": "webpack --mode=production --config ./build/webpack.config.js",
     "lint": "eslint src --ext .js,.ts",
     "server": "tsc && node dist/index.js",
+    "server:progress": "node src/XMLProgress/index.js",
     "test": "jest"
   },
   "keywords": [
@@ -40,7 +41,10 @@
   "dependencies": {
     "@types/koa": "^2.0.52",
     "jquery": "^3.4.1",
-    "koa": "^2.11.0",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-ejs": "^4.3.0",
+    "koa-multer": "^1.0.2",
     "koa-router": "^7.4.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
