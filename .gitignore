@@ -6,8 +6,10 @@ bin-release/
 
 # Other files and folders
 .settings/
-node_moudles
-dist
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
 
 # Executables
 *.swf

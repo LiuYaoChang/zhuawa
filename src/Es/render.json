@@ -1,0 +1,1 @@
+"with(this){return _c('div',{staticClass:"app-wrap"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(text),expression:"text"}],attrs:{"type":"text"},domProps:{"value":(text)},on:{"input":function($event){if($event.target.composing)return;text=$event.target.value}}}),_v(" "),_c('div',{staticClass:"slot"},[_v("内容分发"+_s(text))])])}"
