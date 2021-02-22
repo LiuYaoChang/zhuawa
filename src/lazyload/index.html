@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .scrollArea {
+      height: 600px;
+      width: 400px;
+      /* overflow: auto; */
+    }
+    .list-item {
+      box-sizing: border-box;
+      width: 400px;
+      padding: 2px;
+    }
+    .list-item > img {
+      width: 100%;
+    }
+    ul {
+      height: 100%;
+      overflow: auto;
+    }
+    ul, li {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="scrollArea" id="root">
+    <ul class="list-container">
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+      <li class="list-item lazy-img">
+        <img src="https://img.leikeji.com/resource/img/8915505665eb41599a394f222a68debc.jpg" data-src="https://pic2.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_r.jpg?source=172ae18b" alt="">
+      </li>
+    </ul>
+  </div>
+
+  <script src="../libs/dist/vue.js"></script>
+  <script>
+    var images;
+    var observer
+    window.addEventListener('load', () => {
+      images = document.querySelectorAll('#root > .list-container .lazy-img > img');
+      createObserver();
+    })
+    function handleIntersect(entrys, observer) {
+      entrys.forEach((entry) => {
+        if (entry.intersectionRatio >= 0.5) {
+          const src = entry.target.dataset.src;
+          observer.unobserve(entry.target);
+          entry.target.src = src;
+        }
+      })
+    }
+    function createObserver() {
+      const config = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      }
+      observer = new IntersectionObserver(handleIntersect, config);
+      [].slice.call(images, 0).forEach(image => {
+        observer.observe(image);
+      })
+    }
+  </script>
+</body>
+</html>

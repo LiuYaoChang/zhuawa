@@ -9,6 +9,7 @@
     "lint": "eslint src --ext .js,.ts",
     "server": "tsc && node dist/index.js",
     "server:progress": "node src/XMLProgress/index.js",
+    "dev:cache": "node src/HTTP_CACHE/index.js --model=no_cache",
     "test": "jest"
   },
   "keywords": [
@@ -25,18 +26,26 @@
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
     "awesome-typescript-loader": "^5.2.1",
+    "chokidar": "^3.5.1",
     "clean-webpack-plugin": "^3.0.0",
     "eslint": "^5.16.0",
     "fork-ts-checker-webpack-plugin": "^1.3.7",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
+    "koa-cache-control": "^2.0.0",
+    "koa-etag": "^4.0.0",
+    "koa-fresh": "0.0.3",
+    "koa-static": "^5.0.0",
+    "memory-fs": "^0.5.0",
+    "portfinder": "^1.0.28",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.2",
     "typescript": "^3.5.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.5.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "yargs": "^16.2.0"
   },
   "dependencies": {
     "@types/koa": "^2.0.52",

@@ -1,5 +1,6 @@
 import FPromise from './FPromise/index'
 import { add, getA, a } from './Es/index'
+import './Es/Event'
 import { ObjectFactory } from './Es/ObjectFactory'
 function noop ():void {}
 
