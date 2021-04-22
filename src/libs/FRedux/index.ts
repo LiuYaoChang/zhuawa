@@ -1,6 +1,6 @@
 
 import { compose } from './compose';
-import { createStore } from './createStore';
+import createStore from './createStore';
 
 
 export {

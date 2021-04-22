@@ -1,6 +1,7 @@
 import { Action, AnyAction } from './actions';
 import { Reducer } from './reducers';
 import '../utils/symbol-observable';
+import { type } from 'jquery';
 
 /**
  * extend the state
@@ -17,6 +18,15 @@ export interface UnSubscribe {
 
 export interface Dispatch<A extends Action = AnyAction> {
   <T extends A>(action: T, ...extraArgs: any[]): T
+}
+
+export type Observable<T> = {
+  subscribe: (observer: Observer<T>) => { unsubscribe: UnSubscribe }
+  [Symbol.observable](): Observable<T>
+}
+
+export type Observer<T> = {
+  next?(value: T): void
 }
 
 export type CombinedState<S> = { readonly [$CombinedState]?: undefined } & S;
